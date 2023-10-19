@@ -1,0 +1,39 @@
+.features-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.feature {
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px 10px;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    height: 20vh;
+    background-color: #192e36;
+    transition: 0.4s all;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+}
+
+.feature:hover {
+    transform: scale(1.1);
+}
+
+.feature h2 {
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.feature span {
+    font-size: 1em;
+    line-height: 1.5em;
+    font-weight: 200;
+    color: var(--text);
+    text-overflow: ellipsis;
+}

@@ -1,6 +1,6 @@
-import Button from "../../../ui/button/button";
+import Button from "../../ui/button/button";
 
-const HomeSignUp = () => {
+const SignUp = () => {
   return (
     <>
       <div className="form-container sign-up-container flex">
@@ -113,4 +113,4 @@ const HomeSignUp = () => {
     </>
   );
 };
-export default HomeSignUp;
+export default SignUp;

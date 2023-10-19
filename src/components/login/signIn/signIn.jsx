@@ -1,6 +1,6 @@
-import Button from "../../../ui/button/button"
+import Button from "../../ui/button/button"
 import "./signIn.css"
-const HomeSignIn=()=>{
+const SignIn=()=>{
 return(
     <>
           <div className="form-container sign-in-container flex">
@@ -70,4 +70,4 @@ return(
     </>
 )
 }
-export default HomeSignIn
+export default SignIn

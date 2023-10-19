@@ -1,0 +1,7 @@
+.section-container{
+    background-color: var(--green);
+    width: 100%;
+    height: 40vh;
+    padding:40px 20px;
+    color:var(--text);
+}
