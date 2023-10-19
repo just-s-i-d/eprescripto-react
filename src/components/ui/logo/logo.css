@@ -1,0 +1,14 @@
+.logo {
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+
+.logo .brand {
+    font-size: 2em;
+    letter-spacing: 1px;
+}
+
+.logo .tagline {
+    font-size: .55em;
+}

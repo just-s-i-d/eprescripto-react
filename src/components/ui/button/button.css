@@ -1,0 +1,10 @@
+button.styled {
+    width: max-content;
+    color: var(--text);
+    border-color: transparent;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: var(--green);
+  }
