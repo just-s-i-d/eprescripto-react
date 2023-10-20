@@ -11,7 +11,16 @@
   --errorBackground: #c74244;
   --successBackground: #4aa155;
   --footerBg: #3b3b3b;
+  --primaryTextDashboard: #363740;
+  --secondaryTextDashboard: #a0afbf;
+  --bgColor: rgb(0, 145, 147);
+  --secondaryBgColor: #88dacc;
+  --bodyBgColorDashboard: #f8f9fa;
+  --navBgColorDashboard: white;
+  --modalShadow: rgba(0, 145, 147, 0.9);
+  --cardBgColor: rgb(221, 230, 238);
 }
+
 
 * {
   font-family: "Raleway";
@@ -29,6 +38,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .heading {
   font-size: 42px;
   text-align: center;
