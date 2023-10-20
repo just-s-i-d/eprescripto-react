@@ -1,5 +1,5 @@
 import Feature from "./feature/feature"
-import "./features.css"
+
 const SectionFeatures=()=>{
     const content=[
         {

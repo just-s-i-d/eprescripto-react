@@ -3,6 +3,8 @@ import { createContext, useState } from "react";
 export const UserContext=createContext({
     isLoginBoxShow:false,
     setIsLoginBoxShow:()=>null,
+    currentUser:{},
+    setCurrentUser:()=>null
 })
 
 export const UserProvider=({children})=>{

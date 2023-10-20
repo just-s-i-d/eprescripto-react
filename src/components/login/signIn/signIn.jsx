@@ -1,5 +1,4 @@
 import Button from "../../ui/button/button"
-import "./signIn.css"
 const SignIn=()=>{
 return(
     <>
