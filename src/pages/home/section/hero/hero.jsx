@@ -1,7 +1,12 @@
-import "./hero.css";
 import DoctorIlustration from "../../../../assets/doc-priscription.jpg";
 import Logo from "../../../../components/ui/logo/logo";
+import { useContext } from "react";
+import { UserContext } from "../../../../context/user";
 const HeroSection = () => {
+    const {isLoginBoxVisible,setIsLoginBoxVisible}=useContext(UserContext)
+  const showLoginBox=()=>{
+    setIsLoginBoxVisible(!isLoginBoxVisible)
+  }
   return (
     <section id="home">
       <div className="home-container">
@@ -14,7 +19,7 @@ const HeroSection = () => {
           </p>
           <div className="btn-container">
             <a>
-              <button className="styled get-started login">Get Started</button>
+              <button className="styled get-started login" onClick={showLoginBox}>Get Started</button>
             </a>
           </div>
         </div>

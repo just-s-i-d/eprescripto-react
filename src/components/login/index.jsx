@@ -2,6 +2,7 @@ import Button from "../ui/button/button";
 import LoginOverlay from "./overlay/overlay";
 import SignIn from "./signIn/signIn";
 import SignUp from "./signUp/signUp";
+import "./login.css"
 const Login = () => {
   return (
     <section className="login-box-container">

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Button from "../../ui/button/button";
-import "./overlay.css";
 import OverlayPanel from "./panel/panel";
 const LoginOverlay = () => {
   const [isRightOverlay, setIsRightOverlay] = useState(false);

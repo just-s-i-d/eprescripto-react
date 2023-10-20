@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import Logo from "../logo/logo";
+import Logo from "../ui/logo/logo";
 import NavBarList from "./list/list";
 import "./navBar.css"
 import { UserContext } from "../../context/user";
