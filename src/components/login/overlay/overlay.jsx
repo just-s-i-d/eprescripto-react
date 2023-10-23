@@ -1,17 +1,15 @@
 import { useState } from "react";
 import Button from "../../ui/button/button";
 import OverlayPanel from "./panel/panel";
+
 const LoginOverlay = () => {
   const [isRightOverlay, setIsRightOverlay] = useState(false);
   const overlayHandler = () => {
     setIsRightOverlay(!isRightOverlay);
   };
   return (
-    <div
-      className={`overlay-container flex-col ${
-        isRightOverlay === true ? "" : "active"
-      }`}
-    >
+    <div className={`overlay-container flex-col ${isRightOverlay === true ? "" : "active"}`} >
+      
       <div className="overlay">
         <OverlayPanel
           side="right"

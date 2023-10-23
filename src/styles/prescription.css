@@ -58,9 +58,9 @@
 .prescription-form-container input {
     width: 300px;
     font-size: 1em;
-    padding:10px 15px;
+    padding: 10px 15px;
     border-radius: 10px;
-    border:1px solid transparent;
+    border: 1px solid transparent;
     background-color: var(--bodyBgColorDashboard);
 }
 
@@ -69,7 +69,7 @@
 }
 
 .prescription-form-container .form-field {
-    margin:30px 0;
+    margin: 30px 0;
     justify-content: space-between;
     align-items: baseline;
 }
@@ -137,7 +137,8 @@
     font-weight: 300;
     width: 15%;
 }
-#close-prescrition-modal{
+
+#close-prescrition-modal {
     position: absolute;
     top: -10px;
     z-index: 10;
@@ -145,16 +146,20 @@
     font-size: 3em;
     cursor: pointer;
 }
-.action-btn{
+
+.action-btn {
     width: 35px;
-    border:black 1px solid;
+    border: black 1px solid;
     padding:5px;
     cursor: pointer;
-    margin-left:15px;
+    margin-left: 15px;
 }
-#save-prescription-btn,#add-new-prescription.not-active{
+
+#save-prescription-btn,
+#add-new-prescription.not-active {
     display: none;
 }
-#save-prescription-btn.active{
+
+#save-prescription-btn.active {
     display: block;
 }

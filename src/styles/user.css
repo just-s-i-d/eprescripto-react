@@ -14,51 +14,6 @@ main {
     min-height: 100vh;
 }
 
-.pop-message {
-    display: none;
-    font-size: 1.3em;
-    background-color: var(--desText);
-    padding: 20px;
-    width: 25%;
-    height: 7vh;
-    position: absolute;
-    border-radius: 5px;
-    right: 0;
-    z-index: 100;
-    top: 12%;
-    animation: popUp 0.6s;
-    color: var(--text);
-}
-
-.pop-message.error {
-    background-color: var(--errorBackground);
-}
-
-.pop-message span#close-toast {
-    position: absolute;
-    right: 20px;
-    top: 8px;
-    font-size: 1.8em;
-    cursor: pointer;
-}
-
-.pop-message.success {
-    background-color: var(--successBackground);
-}
-
-.pop-message.active {
-    display: block;
-}
-
-@keyframes popUp {
-    from {
-        transform: translateX(350px);
-    }
-
-    to {
-        transform: translateX(0);
-    }
-}
 
 .main-side-nav-bar li.active {
     color: var(--navBgColorDashboard);
@@ -110,28 +65,21 @@ main {
     width: 25%;
 }
 
-.form-field span {
-    position: absolute;
-    font-size: 14px;
-    color: var(--errorText);
-    margin-top: 1px;
-    margin-left: 10px;
-    display: none;
-}
 
-.form-field input.error,
-.form-field select.error {
+
+.form-field input.active,
+.form-field select.active {
     border: var(--errorText) 1px solid;
 }
 
-.error-name.active,
-.error-hospital-name.active,
-.error-date.active,
-.error-img.active,
-.error-age.active,
-.error-gender.active,
-.error-email.active,
-.error-alias.active{
+.form-field input.active+.error-name,
+.form-field input.actve+.error-hospital-name,
+.form-field select.active+.error-date,
+.form-field input.active+.error-img,
+.form-field input.active+.error-age,
+.form-field select.active+.error-gender,
+.form-field input.active+.error-email,
+.form-field input.active+.error-alias{
     display: block;
 }
 

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 
 const NavBarList=(props)=>{
-    const {list}=props
+    const {list,className}=props
     return(
-        <ul className="flex nav-items-container">
+        <ul className={`nav-items-container ${className}`}>
             {list.map((element,index)=>{
                 const {title,props}=element
                 return (
