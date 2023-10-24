@@ -9,7 +9,10 @@ import "../../styles/home.css"
 import SectionDoctor from "./section/doctors/doctors";
 import SectionContact from "./section/contact/contact";
 import SectionTestimonial from "./section/testimonial/testimonial";
+import Toast from "../../components/toast/toast";
+
 const HomePage = () => {
+  const { toast } = useContext(UserContext)
   return (
     <>
       <HeroSection />
@@ -22,6 +25,7 @@ const HomePage = () => {
       </SectionContainer>
       <SectionTestimonial />
       <SectionContact />
+      <Toast />
     </>
   );
 };

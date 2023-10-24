@@ -48,9 +48,6 @@
     cursor: pointer;
 }
 
-#close-login.white {
-    color: var(--text);
-}
 
 .form-container {
     width: 50%;
@@ -76,7 +73,7 @@
 
 .form-fields-container {
     justify-content: center;
-    margin-top: 10px;
+    margin: 10px 0;
     width: 75%;
 }
 
@@ -86,18 +83,14 @@
 
 .form-fields-container .form-field span {
     position: absolute;
-    padding: 0 10px;
     width: 90%;
-    font-size: .9em;
+    font-size: .8em;
     color: var(--errorText);
-    transition: 3s;
     display: none;
 }
 
-span.error-name.active,
-span.error-email.active,
-span.error-password.active,
-span.error-confirm-password.active {
+.form-container form .form-field input.active+span
+{
     display: block;
 }
 
@@ -110,7 +103,7 @@ span.error-confirm-password.active {
     background-color: #E9E9E9;
 }
 
-.form-container form input.error {
+.form-container form .form-field input.active{
     border-color: var(--errorText);
 }
 

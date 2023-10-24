@@ -1,5 +1,12 @@
+import Error from "../../error/error"
 
-const Input=({children,...otherProps})=>{
-    return <input className="styled" {...otherProps}>{children}</input>
+const Input = ({ errorName, error, ...otherProps }) => {
+
+    return (
+        <>
+            <input {...otherProps}/>
+            <Error className={errorName}>{error}</Error>
+        </>
+    )
 }
 export default Input

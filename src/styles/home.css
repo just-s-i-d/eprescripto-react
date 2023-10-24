@@ -1,3 +1,67 @@
+.navbar-container {
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding: 0 5%;
+    width: 100%;
+    color: var(--text);
+    height: 10vh;
+    background-color: var(--navBackground);
+    /* justify-content: space-evenly; */
+    gap: 15%;
+    align-items: center;
+    font-size: 20px;
+    z-index: 99;
+}
+
+.navbar-container .nav-items-container {
+    display: flex;
+    font-size: 1em;
+    gap: 30%;
+}
+
+.navbar-container-right {
+    font-size: 1em;
+    display: flex;
+    position: relative;
+    left: 20%;
+    align-items: center;
+    gap: 10%;
+}
+
+.navbar-container .menu-icon {
+    position: absolute;
+    height: 20px;
+    top: 3vh;
+    right: 5%;
+    width: 1.5em;
+    cursor: pointer;
+    display: none;
+}
+
+.drop-down-menu {
+    position: absolute;
+    width: 100%;
+    top: 10vh;
+    left: 0;
+    background-color: var(--navBackground);
+    text-align: center;
+}
+
+.drop-down-menu li {
+    font-size: 1.1em;
+    padding: 5px;
+    transition: all 0.4s;
+}
+
+.drop-down-menu li:hover {
+    background-color: #494242;
+}
+
+.navbar-container .drop-down-menu.active {
+    display: block;
+}
+
 #home {
     width: 100%;
     height: 90vh;
@@ -95,6 +159,7 @@
     transform: scale(1.1);
     box-shadow: 0 0 20px 0 var(--shadow);
 }
+
 .how-to-use-section {
     position: relative;
     width: 85%;
@@ -179,6 +244,7 @@
     color: var(--text);
     text-overflow: ellipsis;
 }
+
 .doctor-main-container {
     flex-grow: 2;
     display: flex;
@@ -221,18 +287,21 @@
 .doctor:hover {
     transform: scale(1.1);
 }
+
 .doctor .profile-pic {
     margin-bottom: 10px;
     width: 50%;
     aspect-ratio: 1;
     border-radius: 50%;
 }
-.section-container{
+
+.section-container {
     background-color: var(--green);
     width: 100%;
-    padding:50px 20px;
-    color:var(--text);
+    padding: 50px 20px;
+    color: var(--text);
 }
+
 .testimonial cite {
     float: right;
     font-size: 1.5em;
@@ -255,18 +324,19 @@
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -35%);
 }
 
 .slider-row {
     display: flex;
     width: max-content;
+    overflow-x: hidden;
     transition: 0.5s;
 }
 
 .testimonial {
     padding: 1% 2%;
-    width: 1200px;
+    width: 100%;
     height: 180px;
     border-radius: 10px;
     border: 2px solid var(--green);
@@ -299,6 +369,7 @@
     height: 100%;
     overflow: hidden;
 }
+
 .contact-section {
     padding: 50px;
     position: relative;
@@ -403,10 +474,90 @@ textarea {
 .thanks h4 {
     font-weight: 400;
 }
+
+footer {
+    position: relative;
+    color: var(--text);
+    height: 35vh;
+    width: 100%;
+    display: flex;
+    background-color: var(--footerBg);
+    gap: 5%;
+    padding: 80px 30px;
+}
+
+.footer-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: start;
+    font-size: 18px;
+}
+
+footer .logo {
+    position: relative;
+    width: 30%;
+    left: 5%;
+}
+
+.subscribe {
+    align-items: center;
+}
+
+.subscribe input {
+    padding: 6px 10px;
+    width: 50%;
+    height: 100%;
+    font-size: 1em;
+    border: none;
+    background-color: var(--text);
+}
+
+.subscribe .styled {
+    margin: 0;
+    height: 100%;
+    border-radius: 0;
+    padding: 6px 12px;
+    font-size: 1em;
+}
+
+.logo .social-icons-container {
+    display: flex;
+    margin-top: 10px;
+    gap: 15px;
+}
+
+.footer-container h3 {
+    font-size: 1em;
+}
+
+.footer-container .important-links-container h3 {
+    margin-bottom: 22px;
+}
+
+.footer-container .important-links-container li {
+    margin: 6px 5px;
+}
+
+.footer-container .stay-updated h3 {
+    margin-bottom: 22px;
+}
+
+.bottom-bar {
+    font-size: .9em;
+    width: 100%;
+    background-color: black;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 10px 0;
+}
+
+
 @media (min-width:375px) {
 
-    .navbar-container-left,
-    .navbar-container-right {
+    .navbar-container .nav-items-container {
         display: none;
     }
 
@@ -415,7 +566,7 @@ textarea {
         height: 25px;
     }
 
-    .navbar-container{
+    .navbar-container {
         font-size: 14px;
     }
 
@@ -456,12 +607,16 @@ textarea {
 
     .feature-section,
     .doctors-section {
-        font-size: 13px;
         padding: 40px 0;
     }
 
+    .feature,
+    .doctor {
+        font-size: 11px;
+    }
+
     .feature {
-        flex-basis: 80%;
+        flex-basis: 90%;
     }
 
     .section-fonts {
@@ -491,8 +646,8 @@ textarea {
 
     .testimonial,
     .testimonial-container {
-        width: 300px;
-        height: 150px;
+        width: 340px;
+        height: 160px;
     }
 
     .testimonial blockquote {
@@ -534,41 +689,34 @@ textarea {
 
     footer {
         padding: 20px 10px;
-        justify-content: start;
-        gap: 10%;
+        flex-direction: column;
+        gap: 20px;
     }
 
-   footer .logo {
+    footer .logo {
         font-size: 9px;
-        width: 80%;
+        width: 90%;
     }
 
     .footer-container {
         font-size: 8px;
+        align-items: start;
     }
 
     .logo .social-icons-container {
         gap: 8px;
     }
 
-    .footer-container .details-container {
-        gap: 5px;
-    }
-
     .details-container span i.fa {
         margin-right: 5px;
     }
 
-    .details-container h3 {
-        margin-bottom: 9px;
-    }
-
-    .footer-container {
-        align-items: start;
+    .footer-container .important-links-container h3 {
+        margin-bottom: 15px;
     }
 
     .footer-container .important-links-container ul {
-        margin-top: 13px;
+        margin-top: 0px;
     }
 
     .footer-container .important-links-container li {
@@ -579,17 +727,37 @@ textarea {
         margin-bottom: 13px;
     }
 
-    .subscribe input {
-        padding: 5px 10px;
-        font-size: 1em;
-        border: none;
+
+    footer .logo .brand {
+        font-size: 3em;
     }
 
-    .subscribe .styled {
-        border-radius: 0;
-        padding: 8px 12px;
-        font-size: 1.1em;
+    .subscribe {
+        justify-content: start;
+        margin-top: 5px;
     }
+
+    footer .logo .tagline {
+        font-size: .8em;
+    }
+
+    .footer-container .details-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .details-container span {
+        margin-top: 5px;
+    }
+
+    .details-container span i.fa {
+        margin-right: 10px;
+    }
+
+    .details-container h3 {
+        margin-bottom: 12px;
+    }
+
 }
 
 @media (min-width:375px) and (min-height:670px) and (max-width:575px) {
@@ -605,6 +773,7 @@ textarea {
     .contact-main-container {
         min-height: 55vh;
     }
+
     .contact-form-container form input,
     textarea {
         margin: 8px 0;
@@ -619,8 +788,8 @@ textarea {
 
     .feature {
         padding: 10px;
-        flex-basis: 70%;
-        height: 16vh;
+        flex-basis: 80%;
+        height: 15vh;
         gap: 10%;
     }
 
@@ -655,11 +824,24 @@ textarea {
         height: 70vh;
     }
 
+    .home-container {
+        font-size: 9px;
+    }
+
     .testimonial,
     .testimonial-container {
         width: 400px;
         height: 160px;
         font-size: 12px;
+    }
+
+    .doctor,
+    .feature {
+        font-size: 12px;
+    }
+
+    .feature {
+        flex-basis: 70%;
     }
 
     .testimonial-section {
@@ -693,29 +875,27 @@ textarea {
         height: 75%;
     }
 
-    .home-container .illustration {
-        width: 35%;
+    #home .illustration {
+        width: 40%;
     }
 
     .brand-tagline-container {
         height: 60%;
     }
 
-    .doctors-section {
-        font-size: 13px;
-    }
-
     .doctor {
         flex-basis: 40%;
     }
 
-    .feature-section {
-        font-size: 13px;
+    .feature {
+        padding: 15px;
+        flex-basis: 45%;
+        height: 20vh;
     }
 
+    .doctor,
     .feature {
-        flex-basis: 40%;
-        height: 18vh;
+        font-size: 14px;
     }
 
     .section-fonts {
@@ -743,7 +923,7 @@ textarea {
 
     .testimonial,
     .testimonial-container {
-        width: 450px;
+        width: 490px;
         height: 180px;
         font-size: 16px;
     }
@@ -761,10 +941,12 @@ textarea {
         padding: 20px;
         width: 90%;
     }
+
     .contact-form-container form input,
     textarea {
         margin: 10px 0;
     }
+
     .contact-form-container form {
         width: 90%;
     }
@@ -773,7 +955,7 @@ textarea {
         padding: 30px 10px 20px;
     }
 
-   footer .logo,
+    footer .logo,
     .footer-container {
         font-size: 12px;
     }
@@ -781,16 +963,8 @@ textarea {
 
 @media(min-width:768px) {
 
-    .navbar-container-left,.navbar-container-right {
-        display: flex;
-    }
-
     .navbar-container {
         font-size: 16px;
-    }
-
-    .navbar-container .menu-icon {
-        display: none;
     }
 
     #home {
@@ -880,12 +1054,16 @@ textarea {
 }
 
 @media (min-width:950px) {
-    .navbar-container {
-        font-size: 16px;
+    .navbar-container .nav-items-container {
+        display: flex;
     }
 
-    .navbar-container-right {
-        display: flex;
+    .navbar-container .menu-icon {
+        display: none;
+    }
+
+    .navbar-container {
+        font-size: 16px;
     }
 
     #home {
@@ -1158,11 +1336,8 @@ textarea {
         height: 50%;
     }
 
-    .feature-section {
-        font-size: 17px;
-    }
-
     .feature {
+        font-size: 17px;
         padding: 25px 20px;
         flex-basis: 25%;
     }

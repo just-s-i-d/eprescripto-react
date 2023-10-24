@@ -1,0 +1,220 @@
+.prescription-card {
+    margin: 20px;
+    padding: 30px 20px;
+    width: 50%;
+    background-color: var(--navBgColorDashboard);
+    border-radius: 10px;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px 1px var(--modalShadow);
+}
+
+.prescription-section {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    animation: modalShow 0.4s ease-in-out;
+}
+
+@keyframes modalShow {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+
+.prescription-section .prescription-form>div {
+    width: 50%;
+    padding: 20px;
+}
+
+.prescription-card h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.prescription-form-container {
+    width: 80%;
+    font-size: 1.3em;
+}
+
+#prescription-date {
+    width: 300px;
+    padding: 10px;
+}
+
+.prescription-form-container input {
+    width: 300px;
+    font-size: 1em;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background-color: var(--bodyBgColorDashboard);
+}
+
+.prescription-form-container input:focus {
+    outline: none;
+}
+
+.prescription-form-container .form-field {
+    margin: 30px 0;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.prescription-btn-container {
+    justify-content: center;
+    gap: 10%;
+}
+
+.prescription-btn-container .styled {
+    width: 40%;
+    font-size: .9em;
+}
+
+.prescription-table-container {
+    width: 95%;
+    margin: 20px;
+    padding: 20px;
+    background-color: var(--cardBgColor);
+    border-radius: 5px;
+}
+
+.prescription-table-container table {
+    width: 100%;
+}
+
+.prescription-table-container table th {
+    padding: 15px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.prescription-table-container table td {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.prescription-table-container table thead {
+    padding-left: 20px;
+    background-color: var(--navBgColorDashboard);
+}
+
+.prescription-table-container .empty-table {
+    margin: 0 20px;
+    display: none;
+    position: relative;
+    text-align: center;
+    top: 2vh;
+    padding: 15px 20px;
+    font-size: 1.4em;
+}
+
+.prescription-table-container .empty-table.active {
+    display: block;
+}
+
+.table-data .styled {
+    font-size: .8em;
+    width: max-content;
+    margin-bottom: 15px;
+}
+
+.top-bar .styled {
+    cursor: pointer;
+    font-weight: 300;
+    width: 15%;
+}
+
+#close-prescrition-modal {
+    position: absolute;
+    top: -10px;
+    z-index: 10;
+    right: 2%;
+    font-size: 3em;
+    cursor: pointer;
+}
+
+.action-btn {
+    transform: translateY(10px);
+    vertical-align: center;
+    margin-top: 10px;
+    width: 35px;
+    border: black 1px solid;
+    padding: 5px;
+    cursor: pointer;
+}
+
+td.action-btns-container {
+    vertical-align: center;
+}
+
+.action-btn.delete-prescription {
+    margin-left: 15px;
+}
+
+#save-prescription-btn,
+#add-new-prescription.not-active {
+    display: none;
+}
+
+#save-prescription-btn.active {
+    display: block;
+}
+
+
+
+@media (min-width:375px) {
+
+}
+
+@media (min-width:375px) and (min-height:670px) and (max-width:575px) {
+
+}
+
+@media (min-width:375px) and (min-height:750px) and (max-width:575px) {
+
+}
+
+@media (min-width:450px) and (max-width:575px) {
+
+}
+
+@media (min-width:575px) {
+
+}
+
+@media (min-width:950px) {
+
+}
+
+@media (min-width:1024px) {
+    .prescription-card {
+        width: 65%;
+    }
+}
+
+@media (min-width:1150px) {
+    .prescription-card {
+        width: 60%;
+    }
+}
+
+@media (min-width:1350px) {
+    .prescription-card {
+        width: 50%;
+    }
+}
