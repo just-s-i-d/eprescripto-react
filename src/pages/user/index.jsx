@@ -4,12 +4,13 @@ import Profile from "./profile/profile"
 import UserImg from "../../assets/images/profilepic.png"
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../context/user"
-import { getUserDetails } from "../../utility/user"
+import { deleteUserAccount, getUserDetails } from "../../utility/user"
+import Delete from "../../components/delete/delete"
 
 const UserPage = () => {
     const [isUserSettingsBoxVisible,setIsUserSettingsBoxVisible]=useState(false)
     const {currentUser,setCurrentUser}=useContext(UserContext)
-    
+    const { isConfirmBoxVisible} = useContext(UserContext)
     const showUserSettings=()=>{
         setIsUserSettingsBoxVisible(!isUserSettingsBoxVisible)
     }
@@ -33,6 +34,7 @@ const UserPage = () => {
                     {isUserSettingsBoxVisible===true?<UserSettings currentUser={currentUser} onClick={showUserSettings}/>:<Profile currentUser={currentUser} onClick={showUserSettings}/>}
                 </div>
             </section>
+            {isConfirmBoxVisible&&<Delete onClick={()=>deleteUserAccount(currentUser.id)}/>}
         </main>
     )
 }

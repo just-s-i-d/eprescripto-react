@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
-import { validateUserDetails } from "../../../utility/user"
+import { updateUserDetails, validateUserDetails } from "../../../utility/user"
 import Error from "../../../components/error/error"
+import { toast } from "../../../utility/login"
+import Input from "../../../components/ui/input/input"
 
 const defaultFields = {
     email: "",
     fullName: '',
-    age: Number,
+    age: "",
     gender: ''
 }
 
@@ -15,7 +17,11 @@ const UserSettings = ({ onClick, currentUser }) => {
 
     useEffect(() => {
         formFields.email = currentUser.email
-        formFields.fullName=currentUser.fullName
+        formFields.fullName = currentUser.fullName
+        if(currentUser.age){
+            formFields.age=currentUser.age
+            formFields.gender=currentUser.gender
+        }
     }, [])
 
     const resetFormFields = () => {
@@ -44,22 +50,7 @@ const UserSettings = ({ onClick, currentUser }) => {
     }
     const onSubmitHandler = (event) => {
         event.preventDefault()
-        let idb = indexedDB.open("crude", 1)
-        idb.onsuccess = () => {
-            let tx = idb.result.transaction("users", "readwrite")
-            let store = tx.objectStore("users")
-            let cursor = store.get(currentUser.email)
-            cursor.onsuccess = () => {
-                let curUser = cursor.result
-                const newUserData = {
-                    ...curUser, ...formFields
-                }
-                let res = store.put(newUserData)
-                res.onsuccess = () => {
-                    location.reload()
-                }
-            }
-        }
+        updateUserDetails(currentUser,formFields)
     }
 
     return (
@@ -68,35 +59,31 @@ const UserSettings = ({ onClick, currentUser }) => {
                 <div>
                     <label htmlFor="email">Email :</label>
                     <span className="form-field">
-                        <input type="text" defaultValue={currentUser?.email} name="email" id="email" onChange={onChangeHandler} onBlur={runValidations} /><br />
-                        <Error className="error-email">{error}</Error>
+                        <Input type="text" defaultValue={currentUser?.email} name="email" id="email" onChange={onChangeHandler} onBlur={runValidations} disabled errorName="error-email" error={error}/>
                     </span>
                 </div>
                 <div>
                     <label htmlFor="name">Name :</label>
                     <span className="form-field">
-                        <input type="text" defaultValue={currentUser?.fullName} placeholder="Name" name="fullName" id="name" onChange={onChangeHandler} onBlur={runValidations} />
-                        <br />
-                        <Error className="error-name">{error}</Error>
+                        <Input type="text" defaultValue={currentUser?.fullName} placeholder="Name" name="fullName" id="name" onChange={onChangeHandler} onBlur={runValidations} errorName="error-name" error={error}/>
                     </span>
                 </div>
 
                 <div>
                     <label htmlFor="age">Age :</label>
                     <span className="form-field">
-                        <input type="number" defaultValue={currentUser?.age} name="age" placeholder="Enter your age" id="age" onChange={onChangeHandler} onBlur={runValidations} /><br />
-                        <Error className="error-age">{error}</Error>
+                        <Input type="number" defaultValue={currentUser?.age} name="age" placeholder="Enter your age" id="age" onChange={onChangeHandler} onBlur={runValidations} errorName="error-age" error={error}/>
                     </span>
                 </div>
                 <div>
                     <label htmlFor="gender">Gender :</label>
                     <span className="form-field">
-                        <select name="gender" id="gender" required  onChange={onChangeHandler} onBlur={runValidations}>
+                        <select name="gender" id="gender" defaultValue={currentUser?.gender} required onChange={onChangeHandler} onBlur={runValidations}>
                             <option disabled selected >Select your gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="other">Other</option>
-                        </select><br />
+                        </select>
                         <Error className="error-gender">{error}</Error>
                     </span>
                 </div>

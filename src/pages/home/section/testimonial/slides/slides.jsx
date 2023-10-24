@@ -1,7 +1,7 @@
-const TestimonialSlides=({slide})=>{
+const TestimonialSlides=({slide,currentSlide})=>{
     const {text,author}=slide
     return(
-        <div className="testimonial">
+        <div className="testimonial" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
         <blockquote>
           "{text}"
         </blockquote>

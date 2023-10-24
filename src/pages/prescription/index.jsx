@@ -13,9 +13,8 @@ const PrescriptionsPage = () => {
     const [prescriptions, setPrescriptions] = useState()
     const currentUser = JSON.parse(sessionStorage.getItem("currentUser"))
 
-    const showBoxHandler = (event) => {
+    const showBoxHandler = (event,id) => {
         event.preventDefault()
-        const id = event.currentTarget.id || null
         if (id) {
             setPrescriptionId(id)
         }

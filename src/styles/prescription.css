@@ -1,7 +1,7 @@
 .prescription-card {
     margin: 20px;
     padding: 30px 20px;
-    width: 45%;
+    width: 50%;
     background-color: var(--navBgColorDashboard);
     border-radius: 10px;
     align-items: center;
@@ -97,8 +97,9 @@
 }
 
 .prescription-table-container table th {
-    padding: 15px 0;
-    font-size: 1.3em;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.2em;
     font-weight: 600;
 }
 
@@ -148,10 +149,20 @@
 }
 
 .action-btn {
+    transform: translateY(10px);
+    vertical-align: center;
+    margin-top: 10px;
     width: 35px;
     border: black 1px solid;
-    padding:5px;
+    padding: 5px;
     cursor: pointer;
+}
+
+td.action-btns-container {
+    vertical-align: center;
+}
+
+.action-btn.delete-prescription {
     margin-left: 15px;
 }
 
@@ -162,4 +173,48 @@
 
 #save-prescription-btn.active {
     display: block;
+}
+
+
+
+@media (min-width:375px) {
+
+}
+
+@media (min-width:375px) and (min-height:670px) and (max-width:575px) {
+
+}
+
+@media (min-width:375px) and (min-height:750px) and (max-width:575px) {
+
+}
+
+@media (min-width:450px) and (max-width:575px) {
+
+}
+
+@media (min-width:575px) {
+
+}
+
+@media (min-width:950px) {
+
+}
+
+@media (min-width:1024px) {
+    .prescription-card {
+        width: 65%;
+    }
+}
+
+@media (min-width:1150px) {
+    .prescription-card {
+        width: 60%;
+    }
+}
+
+@media (min-width:1350px) {
+    .prescription-card {
+        width: 50%;
+    }
 }

@@ -64,14 +64,14 @@ export function validateDetails(field) {
 }
 
 const url = "http://localhost:3000/users"
-const dashboardUrl="http://localhost:5174/dashboard/settings"
+const dashboardUrl = "/dashboard/settings"
 const popUp = document.querySelector("#pop-message")
 const popContent = document.querySelector("#pop-message .pop-content")
 const closeToast = document.querySelector("#close-toast")
-closeToast.onclick=()=>{
+closeToast.onclick = () => {
     popUp.classList.remove("active")
 }
-const delay=3000
+const delay = 3000
 export function toast(content, type, redirect) {
     popContent.innerText = content
     popUp.classList.add("active")
@@ -118,7 +118,7 @@ export function createAccount(fields) {
                     const { email, fullName, id } = userData
                     const curUser = { email, fullName, id }
                     sessionStorage.setItem("currentUser", JSON.stringify(curUser))
-                    toast("Logging in", "success",dashboardUrl)
+                    toast("Logging in", "success", dashboardUrl)
                 }
                 cursor.onerror = (e) => {
                     const error = e.target.error.message
@@ -126,8 +126,8 @@ export function createAccount(fields) {
                         toast("Email already exists", "error")
                     }
                 }
-            }).catch(()=> {
-                toast("No response from the server","error")
+            }).catch(() => {
+                toast("No response from the server", "error")
             })
     }
     idb.onerror = () => {
@@ -138,11 +138,11 @@ export function createAccount(fields) {
 
 
 // for sign in
-export function signIn(fields){
-    let {email,password}=fields
-    email=email.trim()
+export function signIn(fields) {
+    let { email, password } = fields
+    email = email.trim()
     const userLoginData = {
-        email,password
+        email, password
     }
     const idb = indexedDB.open("crude", 1)
     idb.onupgradeneeded = () => {
@@ -150,8 +150,8 @@ export function signIn(fields){
         res.createObjectStore("users", { keyPath: "email" })
     }
     idb.onsuccess = () => {
-        const res = idb.result
         try {
+            const res = idb.result
             const tx = res.transaction("users", "readonly")
             const store = tx.objectStore("users")
             const cursor = store.get(userLoginData.email)
@@ -159,9 +159,9 @@ export function signIn(fields){
                 const curRes = cursor.result
                 if (curRes) {
                     if (userLoginData.password === curRes.password) {
-                        const curUser = { email: curRes.email, name: curRes.fullName, id: curRes.id }
-                        sessionStorage.setItem("currentUser", JSON.stringify(curUser))
-                        location.assign(dashboardUrl)
+                        const { email, fullName, id } = curRes
+                        const curUser = { email, fullName, id }
+                        sessionStorage.setItem("currentUser", JSON.stringify(curRes))
                         toast("Logging in", "success", dashboardUrl)
                     }
                     else {

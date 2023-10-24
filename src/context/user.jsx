@@ -20,6 +20,7 @@ export const UserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState()
     const [prescriptionId, setPrescriptionId] = useState(false)
     const user = JSON.parse(sessionStorage.getItem("currentUser"))
+   
     useEffect(() => {
         if (user) {
             setCurrentUser(user)

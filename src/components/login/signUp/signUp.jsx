@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import Button from "../../ui/button/button";
-import { createAccount, validateDetails } from "../../../utility/login";
+import { createAccount, toast, validateDetails } from "../../../utility/login";
 import Error from "../../error/error";
 import { UserContext } from "../../../context/user";
+import Input from "../../ui/input/input";
 
 const defaultFormFields = {
   email: "",
@@ -11,14 +12,14 @@ const defaultFormFields = {
   confirmPassword: ""
 }
 
-const toastMessage={
-  type:"",
-  message:""
+const toastMessage = {
+  type: "",
+  message: ""
 }
 const SignUp = () => {
   const [formFields, setFormFields] = useState(defaultFormFields)
   const [error, setError] = useState("")
-  
+
   const resetFormFields = () => {
     setFormFields(defaultFormFields)
   }
@@ -30,21 +31,23 @@ const SignUp = () => {
 
   const runValidations = (event) => {
     const result = validateDetails(event.target)
-    if (result===true) {
-      console.log(result)
-    }
-    else {
+    if (result!==true){
       event.target.classList.add("active")
       setError(result)
       setTimeout(() => {
         event.target.classList.remove("active")
         setError("")
-      }, 3000)
+      }, 2000)
     }
   }
   const onSubmitHandler = (event) => {
     event.preventDefault()
-    createAccount(formFields)
+    if (formFields.password === formFields.confirmPassword) {
+      createAccount(formFields)
+    }
+    else {
+      toast("Passwords do not match", "error")
+    }
   }
 
   return (
@@ -81,20 +84,16 @@ const SignUp = () => {
           <span>or use your email for registration</span>
           <div className="form-fields-container flex-col">
             <div className={`form-field ${error && "error"}`}>
-              <input type="text" placeholder="Name" name="fullName" onChange={onChangeHandler} onBlur={runValidations} />
-              <Error className="error-name">{error}</Error>
+              <Input type="text" placeholder="Name" name="fullName" onChange={onChangeHandler} onBlur={runValidations} errorName="error-name" error={error} />
             </div>
             <div className={`form-field ${error && "error"}`}>
-              <input type="email" placeholder="Email" name="email" onChange={onChangeHandler} onBlur={runValidations} />
-              <Error className="error-email">{error}</Error>
+              <Input type="email" placeholder="Email" name="email" onChange={onChangeHandler} onBlur={runValidations} errorName="error-email" error={error} />
             </div>
             <div className={`form-field ${error && "error"}`}>
-              <input type="password" placeholder="Password" name="password" onChange={onChangeHandler} onBlur={runValidations} />
-              <Error className="error-password">{error}</Error>
+              <Input type="password" placeholder="Password" name="password" onChange={onChangeHandler} onBlur={runValidations} errorName="error-password" error={error} />
             </div>
             <div className={`form-field ${error && "error"}`}>
-              <input type="password" placeholder="Confirm Password" name="confirmPassword" onChange={onChangeHandler} onBlur={runValidations} />
-              <Error className="error-confirm-password">{error}</Error>
+              <Input type="password" placeholder="Confirm Password" name="confirmPassword" onChange={onChangeHandler} onBlur={runValidations} errorName="error-confirm-password" error={error} />
             </div>
           </div>
           <Button>Sign Up</Button>

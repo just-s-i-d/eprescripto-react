@@ -5,8 +5,10 @@ import { UserContext } from "../../../context/user"
 import { deletePrescription } from "../../../utility/prescription"
 
 const PrescriptionTable = ({ prescriptions,edit}) => {
+    
     const {prescriptionId}=useContext(UserContext)
     const {isConfirmBoxVisible}=useContext(UserContext)
+
     return (
         <section className="prescription-table-section">
             <div className="prescription-table-container">
@@ -28,7 +30,7 @@ const PrescriptionTable = ({ prescriptions,edit}) => {
                         })}
                     </tbody>
                 </table>
-                <div className={`empty-table ${!prescriptions||!prescriptions.length && "active"}`}>No prescriptions added.</div>
+                <div className={`empty-table ${(!prescriptions||!prescriptions.length) && "active"}`}>No prescriptions added.</div>
                 {isConfirmBoxVisible && <Delete onClick={()=>deletePrescription(prescriptionId)}/>}
             </div>
         </section>

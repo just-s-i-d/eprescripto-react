@@ -1,6 +1,6 @@
-.flex-col{
-   display: flex;
-   flex-direction: column;
+.flex-col {
+    display: flex;
+    flex-direction: column;
 }
 
 .flex-col.center {
@@ -37,14 +37,14 @@ main {
 .profile-card {
     margin: 0 auto;
     width: 100%;
-    height: 75vh;
+    height: 78vh;
     padding: 10%;
     background-color: var(--navBgColorDashboard);
     border-radius: 5px;
     box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
 }
 
-.setting{
+.setting {
     display: flex;
 }
 
@@ -73,15 +73,12 @@ main {
 }
 
 .form-field input.active+.error-name,
-.form-field input.actve+.error-hospital-name,
-.form-field select.active+.error-date,
-.form-field input.active+.error-img,
 .form-field input.active+.error-age,
 .form-field select.active+.error-gender,
-.form-field input.active+.error-email,
-.form-field input.active+.error-alias{
+.form-field input.active+.error-email {
     display: block;
 }
+
 
 .user-details.not-active {
     display: none;

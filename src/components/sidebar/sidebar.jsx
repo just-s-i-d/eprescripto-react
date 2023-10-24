@@ -2,13 +2,17 @@ import { Link } from "react-router-dom"
 import "./sidebar.css"
 import { useContext, useEffect } from "react"
 import { UserContext } from "../../context/user"
+import { toast } from "../../utility/login"
+
 const SideBar=()=>{
     const {setCurrentUser}=useContext(UserContext)
+    
     function logoutHandler(){
         setCurrentUser("")
         sessionStorage.removeItem("currentUser")
-        location.assign("http://localhost:5174/home")
+        toast("Logging out","success","/")
     }
+
     return(
         <aside className="flex-col sidebar">
             <h1 className="brand-name">ePrescripto</h1>

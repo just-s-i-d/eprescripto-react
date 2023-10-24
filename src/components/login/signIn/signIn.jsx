@@ -2,6 +2,7 @@ import { useState } from "react"
 import Button from "../../ui/button/button"
 import Error from "../../error/error"
 import { signIn, validateDetails } from "../../../utility/login"
+import Input from "../../ui/input/input"
 const defaultFormFields = {
     email: "",
     password: ""
@@ -13,24 +14,23 @@ const SignIn = () => {
         const { name, value } = event.target
         setFormFields({ ...formFields, [name]: value })
     }
-    const onSubmitHandler=(event)=>{
+    const onSubmitHandler = (event) => {
         event.preventDefault()
         signIn(formFields)
     }
     const runValidations = (event) => {
         const result = validateDetails(event.target)
-        if (result===true) {
-          console.log(result)
+        if (result === true) {
         }
         else {
-          event.target.classList.add("active")
-          setError(result)
-          setTimeout(() => {
-            event.target.classList.remove("active")
-            setError("")
-          }, 3000)
+            event.target.classList.add("active")
+            setError(result)
+            setTimeout(() => {
+                event.target.classList.remove("active")
+                setError("")
+            }, 2000)
         }
-      }
+    }
     return (
         <>
             <div className="form-container sign-in-container flex">
@@ -84,12 +84,10 @@ const SignIn = () => {
                     <span>or use your account</span>
                     <div className="form-fields-container flex-col">
                         <div className="form-field">
-                            <input type="email" placeholder="Email" name="email" onChange={onChangeHandler} onBlur={runValidations}/>
-                            <Error className="error-email">{error}</Error>
+                            <Input type="email" placeholder="Email" name="email" onChange={onChangeHandler} onBlur={runValidations} errorName="error-email" error={error} />
                         </div>
                         <div className="form-field">
-                            <input type="password" placeholder="Password" name="password" onChange={onChangeHandler} onBlur={runValidations}/>
-                            <Error className="error-password">{error}</Error>
+                            <Input type="password" placeholder="Password" name="password" onChange={onChangeHandler} onBlur={runValidations} errorName="error-password" error={error} />
                         </div>
                     </div>
                     <a href="#">Forgot your password?</a>

@@ -89,7 +89,6 @@
     display: none;
 }
 
-
 .form-container form .form-field input.active+span
 {
     display: block;

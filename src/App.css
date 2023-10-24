@@ -45,16 +45,16 @@
   margin-bottom: 4vh;
 }
 
-.form-field input{
+.form-field input {
   background-color: var(--secondaryTextDashboard);
 }
+
 .pop-message {
   display: none;
-  font-size: 1.3em;
+  font-size: 1.2em;
   background-color: var(--desText);
-  padding: 20px;
   width: 25%;
-  height: 7vh;
+  height: 8vh;
   position: absolute;
   border-radius: 5px;
   right: 0;
@@ -64,15 +64,21 @@
   color: var(--text);
 }
 
+.toast-container {
+  padding:0 25px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .pop-message.error {
   background-color: var(--errorBackground);
 }
 
 .pop-message span#close-toast {
-  position: absolute;
-  right: 20px;
-  top: 8px;
   font-size: 1.8em;
+  color: var(--text);
   cursor: pointer;
 }
 
@@ -86,10 +92,10 @@
 
 @keyframes popUp {
   from {
-      transform: translateX(350px);
+    transform: translateX(350px);
   }
 
   to {
-      transform: translateX(0);
+    transform: translateX(0);
   }
 }

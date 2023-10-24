@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react"
-import { addNewPrescription, showPrescriptionDetails } from "../../../utility/prescription"
+import { addNewPrescription, showPrescriptionDetails, validatePrescriptionDetails } from "../../../utility/prescription"
 import { UserContext } from "../../../context/user"
 import Input from "../../../components/ui/input/input"
-
+import Error from "../../../components/error/error"
 
 const defaultFormFields = {
     alias: "",
@@ -15,24 +15,35 @@ const defaultFormFields = {
 const PrescriptionModal = ({ onClick }) => {
     const { prescriptionId, setPrescriptionId } = useContext(UserContext)
     const [formFields, setFormFields] = useState(defaultFormFields)
-
+    const [error, setError] = useState("")
     const runValidations = (event) => {
         const { name, value } = event.target
         setFormFields({ ...formFields, [name]: value })
+        const result = validatePrescriptionDetails(event.target)
+        if (result === true) {
+            console.log(result)
+        }
+        else {
+            event.target.classList.add("active")
+            setError(result)
+            setTimeout(() => {
+                event.target.classList.remove("active")
+                setError("")
+            }, 2000)
+        }
     }
+
     const curUser = JSON.parse(sessionStorage.getItem("currentUser"))
 
     const onSubmitHandler = (event) => {
         event.preventDefault()
         if (prescriptionId) {
             addNewPrescription(formFields, prescriptionId)
-            
         }
         else {
             addNewPrescription(formFields)
         }
     }
-
     useEffect(() => {
         if (prescriptionId) {
             const details = async () => {
@@ -52,36 +63,31 @@ const PrescriptionModal = ({ onClick }) => {
                     <div className="form-field flex">
                         <label htmlFor="alias">Prescription Name :</label>
                         <div>
-                            <input type="text" id="alias" name="alias" onBlur={runValidations} defaultValue={formFields.alias} /><br />
-                            <span className="error-alias">error</span>
+                            <Input type="text" id="alias" name="alias" onBlur={runValidations} defaultValue={formFields.alias} errorName="error-alias" error={error}/>
                         </div>
                     </div>
                     <div className="form-field flex">
                         <label htmlFor="doc-name">Doctor Name :</label>
                         <div>
-                            <input type="text" id="doc-name" name="docName" onBlur={runValidations} defaultValue={formFields.docName} /><br />
-                            <span className="error-name">error</span>
+                            <Input type="text" id="doc-name" name="docName" onBlur={runValidations} defaultValue={formFields.docName} errorName="error-name" error={error}/>
                         </div>
                     </div>
                     <div className="form-field flex">
                         <label htmlFor="hospital-name">Hospital Name :</label>
                         <div>
-                            <input type="text" name="hospitalName" id="hospital-name" onBlur={runValidations} defaultValue={formFields.hospitalName} /><br />
-                            <span className="error-hospital-name">error</span>
+                            <Input type="text" name="hospitalName" id="hospital-name" onBlur={runValidations} defaultValue={formFields.hospitalName} errorName="error-hospital-name" error={error}/>
                         </div>
                     </div>
                     <div className="form-field flex">
                         <label htmlFor="prescription-date">Prescription Date :</label>
                         <div>
-                            <input type="date" id="prescription-date" name="prescriptionDate" onBlur={runValidations} defaultValue={formFields.prescriptionDate} /><br />
-                            <span className="error-date">error</span>
+                            <Input type="date" id="prescription-date" name="prescriptionDate" onBlur={runValidations} defaultValue={formFields.prescriptionDate} errorName="error-date" error={error}/>
                         </div>
                     </div>
                     <div className="form-field flex">
                         <label htmlFor="img-link">Image Url :</label>
                         <div>
-                            <input type="url" id="img-link" name="imgLink" onBlur={runValidations} defaultValue={formFields.imgLink} />
-                            <span className="error-img">error</span>
+                            <Input type="url" id="img-link" name="imgLink" onBlur={runValidations} defaultValue={formFields.imgLink} errorName="error-img" error={error}/>   
                         </div>
                     </div>
                     <div className="prescription-btn-container flex">

@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/src/index.css">
     <title>ePrescripto</title>
   </head>
 
@@ -12,8 +13,10 @@
     <div id="root">
     </div>
     <div class="pop-message" id="pop-message">
-      <span class="pop-content"> Wrong password</span>
-      <span id="close-toast">&times;</span>
+      <div class="toast-container">
+        <span class="pop-content"></span>
+        <span id="close-toast">&times;</span>
+      </div>
     </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

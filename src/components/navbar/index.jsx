@@ -3,6 +3,7 @@ import Logo from "../ui/logo/logo";
 import NavBarList from "./list/list";
 import { UserContext } from "../../context/user";
 import DropDown from "./dropdown/dropdown";
+import { toast } from "../../utility/login";
 
 const list1 = [
   { title: "Home", props: {} },
@@ -21,7 +22,7 @@ const NavBar = () => {
   function logoutHandler(){
     setCurrentUser("")
     sessionStorage.removeItem("currentUser")
-    location.assign("http://localhost:5174/")
+   toast("Logging Out","success","reload")
 }
   
   const list2 = [

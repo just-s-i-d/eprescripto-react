@@ -1,4 +1,7 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { deleteUserAccount } from "../../../utility/user"
+import { UserContext } from "../../../context/user"
+import Delete from "../../../components/delete/delete"
 
 const defaultFields = {
     email: "",
@@ -6,11 +9,19 @@ const defaultFields = {
     age: "",
     gender: ""
 }
-const Profile = ({ onClick, currentUser }) => {
+
+const Profile = ({ onClick }) => {
     const [fields, setFields] = useState(defaultFields)
+    const { isConfirmBoxVisible, setIsConfirmBoxVisible } = useContext(UserContext)
+    const currentUser = JSON.parse(sessionStorage.getItem("currentUser"))
+
+    const deleteAccountHandler = () => {
+        setIsConfirmBoxVisible(!isConfirmBoxVisible)
+    }
     useEffect(() => {
-        setFields({...currentUser})
-    }, [currentUser])
+        setFields({ ...currentUser })
+    }, [])
+
     return (
         <div className="user-details">
             <div className="detail-field">
@@ -30,7 +41,8 @@ const Profile = ({ onClick, currentUser }) => {
                 <h3>{fields.gender ? fields.gender : "Not Set"}</h3>
             </div>
             <button className="dashboard styled" id="update-btn" onClick={onClick}>Edit Details</button>
-            <button className="dashboard styled" id="delete-btn">Delete Account</button>
+            <button className="dashboard styled" id="delete-btn" onClick={deleteAccountHandler}>Delete Account</button>
+            
         </div>
     )
 }
